@@ -1,4 +1,4 @@
-package play
+package lego.hello.rego
 
 import future.keywords.in
 
