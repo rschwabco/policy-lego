@@ -1,179 +1,266 @@
 {
   "property_groups": {
-    "Authorization": {},
+    "Authorization": {
+      "Children": ["Authorization Administrator", "Manage Property Groups"]
+    },
     "Authorization Administrator": {
-      "Parents": ["Authorization"]
+      "Parents": ["Authorization"],
+      "Children": ["Manage Property Groups"]
     },
     "Manage Property Groups": {
-      "Parents": ["Authorization Administrator", "Authorization"]
+      "Parents": ["Authorization Administrator", "Authorization"],
+      "Children": [
+        "Manage Authorization",
+        "Manage 04.01.01 Customer and Channel Management",
+        "Manage 04.02.01 Commercial Planning and Execution",
+        "Manage 04.03.01 Assortment and Space Management",
+        "Manage 04.03.03 Virtual Showroom",
+        "Manage 04.03.04 Trade Promotion Management",
+        "Manage 07.01.05 Demand Planning (Short-Term)",
+        "Manage 10.21.07 Trade Promotion Effectiveness"
+      ]
     },
     "Manage Authorization": {
       "Parents": ["Manage Property Groups"],
-      "Properties": ["Manage Property Groups in Authorization"]
+      "Properties": ["Manage Property Groups in Authorization"],
+      "Children": []
     },
     "Manage 04.01.01 Customer and Channel Management": {
       "Parents": ["Manage Property Groups"],
       "Properties": [
         "Manage Property Groups in 04.01.01 Customer and Channel Management"
-      ]
+      ],
+      "Children": []
     },
     "Manage 04.02.01 Commercial Planning and Execution": {
       "Parents": ["Manage Property Groups"],
       "Properties": [
         "Manage Property Groups in 04.02.01 Commercial Planning and Execution"
-      ]
+      ],
+      "Children": []
     },
     "Manage 04.03.01 Assortment and Space Management": {
       "Parents": ["Manage Property Groups"],
       "Properties": [
         "Manage Property Groups in 04.03.01 Assortment and Space Management"
-      ]
+      ],
+      "Children": []
     },
     "Manage 04.03.03 Virtual Showroom": {
       "Parents": ["Manage Property Groups"],
-      "Properties": ["Manage Property Groups in 04.03.03 Virtual Showroom"]
+      "Properties": ["Manage Property Groups in 04.03.03 Virtual Showroom"],
+      "Children": []
     },
     "Manage 04.03.04 Trade Promotion Management": {
       "Parents": ["Manage Property Groups"],
       "Properties": [
         "Manage Property Groups in 04.03.04 Trade Promotion Management"
-      ]
+      ],
+      "Children": []
     },
     "Manage 07.01.05 Demand Planning (Short-Term)": {
       "Parents": ["Manage Property Groups"],
       "Properties": [
         "Manage Property Groups in 07.01.05 Demand Planning (Short-Term)"
-      ]
+      ],
+      "Children": []
     },
     "Manage 10.21.07 Trade Promotion Effectiveness": {
       "Parents": ["Manage Property Groups"],
       "Properties": [
         "Manage Property Groups in 10.21.07 Trade Promotion Effectiveness"
+      ],
+      "Children": []
+    },
+    "Internal Roles": {
+      "Children": [
+        "KAM",
+        "Customer Development Manager",
+        "Regional Customer Development",
+        "BU Customer Development",
+        "Business Partner",
+        "Demand Planner",
+        "Market Lead",
+        "Brand Manager",
+        "Internal Access"
       ]
     },
-    "Internal Roles": {},
     "KAM": {
       "Parents": [
         "Internal Roles",
         "Business Partner",
         "Demand Planner",
         "Assortment and Space Management Regional Customer Development"
-      ]
+      ],
+      "Children": []
     },
-    "Customer Development Manager": { "Parents": ["Internal Roles"] },
-    "Regional Customer Development": { "Parents": ["Internal Roles"] },
-    "BU Customer Development": { "Parents": ["Internal Roles"] },
-    "Business Partner": { "Parents": ["Internal Roles"] },
-    "Demand Planner": { "Parents": ["Internal Roles"] },
-    "Market Lead": { "Parents": ["Internal Roles"] },
+    "Customer Development Manager": {
+      "Parents": ["Internal Roles"],
+      "Children": []
+    },
+    "Regional Customer Development": {
+      "Parents": ["Internal Roles"],
+      "Children": []
+    },
+    "BU Customer Development": {
+      "Parents": ["Internal Roles"],
+      "Children": []
+    },
+    "Business Partner": {
+      "Parents": ["Internal Roles"],
+      "Children": ["KAM"]
+    },
+    "Demand Planner": {
+      "Parents": ["Internal Roles"],
+      "Children": ["KAM"]
+    },
+    "Market Lead": {
+      "Parents": ["Internal Roles"],
+      "Children": []
+    },
     "Brand Manager": {
       "Parents": ["Internal Roles"],
-      "Properties": ["Approve Price Point Priority"]
+      "Properties": ["Approve Price Point Priority"],
+      "Children": []
     },
-    "Internal Access": { "Parents": ["Internal Roles"] },
-    "Demand Planning (Short-Term) KAM": { "Parents": ["KAM"] },
+    "Internal Access": {
+      "Parents": ["Internal Roles"],
+      "Children": []
+    },
+    "Demand Planning (Short-Term) KAM": {
+      "Parents": ["07.01.05 Demand Planning (Short-Term)"],
+      "Properties": [""],
+      "Children": ["Promotion Screen", "Campaign Screen"]
+    },
     "Trade Promotion Effectiveness Customer Facing Role": {
-      "Parents": ["KAM"]
+      "Parents": ["10.21.07 Trade Promotion Effectiveness"],
+      "Properties": ["Is customer facing"],
+      "Children": []
     },
     "Assortment and Space Management Regional Customer Development": {
-      "Parents": ["Regional Customer Development"]
+      "Parents": ["04.03.01 Assortment and Space Management"],
+      "Properties": ["View Rare Items"],
+      "Children": ["KAM"]
     },
     "Assortment and Space Management BU Customer Development": {
-      "Parents": ["BU Customer Development"]
+      "Parents": ["04.03.01 Assortment and Space Management"],
+      "Properties": ["View Customer Data", "View Rare Items"],
+      "Children": []
     },
     "Approval Flow for Execution and Planning": {
-      "Parents": ["Business Partner", "Demand Planner"]
+      "Parents": ["04.03.04 Trade Promotion Management"],
+      "Properties": ["Approve Execution and Planning"],
+      "Children": []
     },
-
-    "External Roles": {},
+    "External Roles": {
+      "Children": ["Customer", "Agency"]
+    },
     "Customer": {
       "Parents": ["External Roles"],
-      "Properties": ["Manage Self Service"]
+      "Properties": ["Manage Self Service"],
+      "Children": []
     },
-
-    "Agency": { "Parents": ["External Roles"] },
-
-    "04.01.01 Customer and Channel Management": {},
+    "Agency": {
+      "Parents": ["External Roles"],
+      "Children": []
+    },
+    "04.01.01 Customer and Channel Management": {
+      "Children": ["Customer Hierarchy", "Customer Data"]
+    },
     "Customer Hierarchy": {
-      "Parents": ["04.01.01 Customer and Channel Management"]
+      "Parents": ["04.01.01 Customer and Channel Management"],
+      "Children": []
     },
     "Customer Data": {
-      "Parents": ["04.01.01 Customer and Channel Management"]
+      "Parents": ["04.01.01 Customer and Channel Management"],
+      "Children": []
     },
-
-    "04.02.01 Commercial Planning and Execution": {},
-
-    "04.03.01 Assortment and Space Management": {},
+    "04.02.01 Commercial Planning and Execution": {
+      "Children": []
+    },
+    "04.03.01 Assortment and Space Management": {
+      "Children": [
+        "Assortment and Space Management Regional Customer Development",
+        "Assortment and Space Management BU Customer Development",
+        "Distribution Report Manager",
+        "Listings Creator"
+      ]
+    },
     "Distribution Report Manager": {
       "Parents": ["04.03.01 Assortment and Space Management"],
-      "Properties": ["Manage Distribution Report"]
+      "Properties": ["Manage Distribution Report"],
+      "Children": []
     },
     "Listings Creator": {
       "Parents": ["04.03.01 Assortment and Space Management"],
-      "Properties": ["Manage Listings"]
+      "Properties": ["Manage Listings"],
+      "Children": []
     },
-    "Assortment and Space Management Regional Customer Development": {
-      "Parents": ["04.03.01 Assortment and Space Management"],
-      "Properties": ["View Rare Items"]
+    "04.03.03 Virtual Showroom": {
+      "Children": [
+        "Hide NPI/NEP Price",
+        "Access next year from mid March",
+        "Virtual Showroom Developer",
+        "Virtual Showroom Distributor"
+      ]
     },
-    "Assortment and Space Management BU Customer Development": {
-      "Parents": ["04.03.01 Assortment and Space Management"],
-      "Properties": ["View Customer Data", "View Rare Items"]
-    },
-
-    "04.03.03 Virtual Showroom": {},
     "Hide NPI/NEP Price": {
       "Parents": ["04.03.03 Virtual Showroom"],
-      "Properties": ["Hide NIP/NEP Price"]
+      "Properties": ["Hide NIP/NEP Price"],
+      "Children": []
     },
     "Access next year from mid March": {
       "Parents": ["04.03.03 Virtual Showroom"],
-      "Properties": ["Access next year from mid March"]
+      "Properties": ["Access next year from mid March"],
+      "Children": []
     },
     "Virtual Showroom Developer": {
       "Parents": ["04.03.03 Virtual Showroom"],
-      "Properties": ["No tracking"]
+      "Properties": ["No tracking"],
+      "Children": []
     },
     "Virtual Showroom Distributor": {
-      "Parents": ["04.03.03 Virtual Showroom"]
+      "Parents": ["04.03.03 Virtual Showroom"],
+      "Children": []
     },
-
-    "04.03.04 Trade Promotion Management": {},
-    "Approval Flow for Execution and Planning": {
-      "Parents": ["04.03.04 Trade Promotion Management"],
-      "Properties": ["Approve Execution and Planning"]
+    "04.03.04 Trade Promotion Management": {
+      "Children": ["Approval Flow for Execution and Planning"]
     },
-
-    "07.01.05 Demand Planning (Short-Term)": {},
+    "07.01.05 Demand Planning (Short-Term)": {
+      "Children": [
+        "Demand Planning (Short-Term) KAM",
+        "Promotion Screen",
+        "Campaign Screen",
+        "Demand Planning (Short-Term) Sales Rep",
+        "Demand Planning (Short-Term) Trade Marketeer"
+      ]
+    },
     "Promotion Screen": {
       "Parents": [
         "07.01.05 Demand Planning (Short-Term)",
         "Demand Planning (Short-Term) KAM"
       ],
-      "Properties": ["Manage Promotion Screen"]
+      "Properties": ["Manage Promotion Screen"],
+      "Children": []
     },
     "Campaign Screen": {
       "Parents": [
         "07.01.05 Demand Planning (Short-Term)",
         "Demand Planning (Short-Term) KAM"
       ],
-      "Properties": ["View Campaign Screen"]
-    },
-    "Demand Planning (Short-Term) KAM": {
-      "Parents": ["07.01.05 Demand Planning (Short-Term)"],
-      "Properties": [""]
+      "Properties": ["View Campaign Screen"],
+      "Children": []
     },
     "Demand Planning (Short-Term) Sales Rep": {
-      "Parents": ["07.01.05 Demand Planning (Short-Term)"]
+      "Parents": ["07.01.05 Demand Planning (Short-Term)"],
+      "Children": []
     },
     "Demand Planning (Short-Term) Trade Marketeer": {
-      "Parents": ["07.01.05 Demand Planning (Short-Term)"]
+      "Parents": ["07.01.05 Demand Planning (Short-Term)"],
+      "Children": []
     },
-
-    "10.21.07 Trade Promotion Effectiveness": {},
-    "Trade Promotion Effectiveness Customer Facing Role": {
-      "Parents": ["10.21.07 Trade Promotion Effectiveness"],
-      "Properties": ["Is customer facing"]
+    "10.21.07 Trade Promotion Effectiveness": {
+      "Children": ["Trade Promotion Effectiveness Customer Facing Role"]
     }
   },
   "customer_hierarchy": {
