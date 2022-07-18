@@ -1,4 +1,4 @@
-package lego.hello.rego
+package lego.api.__customer.__group
 
 import future.keywords.in
 
